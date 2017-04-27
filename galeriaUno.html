@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+    <script language="javascript" type="text/javascript">
+       var imgs=["imgs/titan.jpg","imgs/jaguar.jpg","imgs/russ.jpg","imgs/sequoia.jpg","imgs/tianhe.jpg"];
+       img = 0;
+       maxImg = imgs.length - 1;
+       //DEBUG...
+       //alert(maxImg);
+       function next(){
+          img++;
+          if(img>maxImg){
+             img=0;
+          }else{
+             document.rotaImg.src=imgs[img];
+          }
+          //More debug...
+          //alert(img);
+       }
+       function prev(){
+         img--;
+           if(img<0){
+              img=maxImg;
+           }else {
+              document.rotaImg.src=imgs[img];
+           }
+           //And more debug...
+           //alert(img);
+       }
+    </script>
+    <title>Galeria</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Unidad 1</a></li>
+          <li><a href="#">Unidad 2</a></li>
+          <li><a href="#">Unidad 3</a></li>
+          <li><a href="#">Unidad 4</a></li>
+          <li><a href="#">Unidad 5</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!--Parte de la imagen-->
+    <section class="text-center">
+      <h2>Galeria de Imagenes</h2>
+      <img src="imgs/titan.jpg" name="rotaImg" height="500px" width="90%"/>
+      </br>
+      <h4><a href="javascript:prev()">anterior imagen | </a>
+      <a href="javascript:next()">siguiente imagen</a></p></h4>
+      </br>
+      <a href="/"><button type="button" class="btn btn-info">Ir atras</button></a>
+      </br></br>
+    </section>
+  </body>
+</html>

@@ -1,9 +1,8 @@
 <html>
 <head>
-<link rel=StyleSheet href="css/bootstrap.css" type="text/css" />
+<link rel=StyleSheet href="styles/css/bootstrap.css" type="text/css" />
 <title>Calculadora HTML + JavaScript basica</title>
 <script language="javascript" type="text/javascript">
-//calculadora hecha en javascript
 function dividir(){
 num1=Number(document.calculadora.numero1.value);
 num2=Number(document.calculadora.numero2.value);
@@ -40,7 +39,7 @@ document.calculadora.total.value=res;
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">WebSiteName</a>
+      <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
@@ -65,5 +64,8 @@ document.calculadora.total.value=res;
       <input type="button" class="btn" value="Dividir" onclick="javascript:dividir();">
     </form>
   </div>
+  </br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href="/"><button type="button" class="btn btn-info">Ir atras</button></a>
+  </br>
 </body>
 </html>

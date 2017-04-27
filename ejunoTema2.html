@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+    <script language="javascript" type="text/javascript">
+        window.onload = function () {
+         var data = document.getElementById("info");
+         var enlaces = document.getElementById("numEnlaces");
+         var negrita = document.getElementById("numNegrita");
+         var italica = document.getElementById("numItalic");
+         var primEnlaceHref = document.getElementById("primEnlaceHref");
+         var secWeb = document.getElementById("secWeb");
+         //Num de enlaces
+         var numEnlaces = data.getElementsByTagName("a");
+         var numNegrita = data.getElementsByTagName("b");
+         var numItalica = data.getElementsByTagName("i");
+
+         var totalSecWebs = 0;
+
+         for (var i = 0; i < numEnlaces.length; i++) {
+                if (numEnlaces[i].href == "https://foo" || numEnlaces[i].href == "https://foo/") {
+                    totalSecWebs++;
+                }
+         }
+
+         enlaces.innerHTML = numEnlaces.length;
+         negrita.innerHTML = numNegrita.length;
+         italica.innerHTML = numItalica.length;
+         primEnlaceHref.innerHTML = numEnlaces[0].href;
+         secWeb.innerHTML = totalSecWebs;
+         //
+        }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Unidad 1</a></li>
+          <li><a href="#">Unidad 2</a></li>
+          <li><a href="#">Unidad 3</a></li>
+          <li><a href="#">Unidad 4</a></li>
+          <li><a href="#">Unidad 5</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p>
+      <section class="container container-fluid" id="info">
+        Lorem ipsum dolor sit amet, <a href="http://foo">consectetuer adipiscing elit</a>.
+        Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue,
+        commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum
+        et, luctus at, pede. <b>Pellentesque massa</b> ante, ornare id, aliquam vitae, ultrices
+        porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus
+        magna sem, semper quis, faucibus ut, rhoncus non, mi. <a href="https://foo">Fusce
+            porta</a>. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat
+        arcu, at posuere ante quam non dolor. <b>Lorem</b> ipsum dolor sit amet, consectetuer adipiscing
+        elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis
+        ac, felis. Donec arcu. Nam sed tortor nec ipsum aliquam ullamcorper. Duis accumsan
+        metus eu urna. Aenean vitae enim. Integer lacus. Vestibulum venenatis erat eu odio.
+        Praesent id metus.</p>
+      <p>
+        Aenean at nisl. <i>Maecenas</i> egestas dapibus odio. Vestibulum ante ipsum primis in faucibus
+        orci luctus et ultrices posuere cubilia Curae; Proin consequat auctor diam. <a href="http://foo">
+            Ut bibendum blandit est</a>. Curabitur vestibulum. Nunc malesuada porttitor
+        sapien. Aenean a lacus et metus venenatis porta. Suspendisse cursus, sem non dapibus
+        tincidunt, lorem magna <a href="http://foo">porttitor</a> felis, id sodales dolor dolor sed urna. Sed rutrum
+        nulla vitae tellus. Sed quis eros nec lectus tempor lacinia. Aliquam nec lectus
+        nec neque aliquet dictum. Etiam <a href="https://foo">consequat sem quis massa</a>.
+        Donec aliquam euismod diam. In magna massa, mattis id, pellentesque sit amet, porta
+        sit amet, lectus. Curabitur posuere. <b>Aliquam</b> in elit. Fusce condimentum, arcu in
+        scelerisque lobortis, ante arcu scelerisque mi, at cursus mi risus sed tellus.</p>
+        <hr />
+        <br><br>
+          Numero de palabras en negrita:<span id="numNegrita"></span>
+          <br>
+          Numero de palabras en italic: <span id="numItalic"></span>
+          <br>
+          Numero de enlaces:<span id="numEnlaces"></span>
+          <br>
+          El primer enlace apunta a: <span id="primEnlaceHref"></span>
+          <br>
+          Numero de enlaces que apuntan a una web segura (HTTPS): <span id="secWeb"></span>
+      </section>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario validacion.</title>
+  <link rel=StyleSheet href="styles/css/bootstrap.css" type="text/css" />
+  <script language="javascript" type="text/javascript">
+  function validate(){
+    var toSend = true;
+    if(document.valForm.nomape.value.length==0){
+      alert("Rellene el campo de nombre y apellido.");
+      toSend = false;
+    }
+    if(document.valForm.edad.value < 0 || document.valForm.edad.value > 120){
+      alert("Edad incorrecta, edad de 0 a 120");
+      toSend = false;
+    }
+    if(/[\d]/.test(document.getElementById("nomape").value)){
+      alert("El nombre contiene numeros.");
+      toSend = false;
+    }
+    if(!/[0-9]{5}/.test(document.getElementById("postal").value)){
+      alert("Revise el codigo postal, min 5 numeros.");
+      toSend = false;
+    }
+    if (toSend == false) {
+      alert("No se envio el formulario, revise los errores.")
+    }else{
+      alert("Todo correcto, el formulario ha sido enviado, pulse 'Ok' para ser redireccionado...");
+      window.location.href = "/";
+    }
+  }
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Unidad 1</a></li>
+        <li><a href="#">Unidad 2</a></li>
+        <li><a href="#">Unidad 3</a></li>
+        <li><a href="#">Unidad 4</a></li>
+        <li><a href="#">Unidad 5</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <h1>Validacion de datos</h1></br></br>
+    <form name="valForm">
+    Nombre y apellidos:
+    <input type="text" name="nomape" id="nomape">&nbsp;&nbsp;&nbsp;
+    Edad:
+    <input type="text" name="edad" size="3"></br></br>
+    Direccion:
+    <input type="text" name="direc">&nbsp;&nbsp;&nbsp;
+    Cod postal:
+    <input type="text" name="postal" id="postal" size="8">
+</br>
+</br/>
+<button type="button" onclick="validate()" class="btn btn-success">Validar datos</button>
+</br>
+</br>
+<a href="/"><button type="button" class="btn btn-info">Ir atras</button></a>
+</form>
+</div>
+</body>
+</html>

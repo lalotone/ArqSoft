@@ -1,15 +1,179 @@
 <html>
 <head>
-  <LINK REL=StyleSheet HREF="css/bootstrap.css" TYPE="text/css" />
+  <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
   <script language="javascript" type="text/javascript">
-  alert("Welcome to the jungle!!");
+  //DECLARACION VARIABLES
+  //EX-1
+  //Array con las unidades ya al crearlo
+  var unidadesTema = ["Unidad-1","Unidad-2","Unidad-3","Unidad-4","Unidad-5"];
+  //EX-2
+  var array = [true, 5, false, "hola", "adios", 2];
+  var textoMayor = array[3] > array[4];
+  var boolOne = array[0];
+  var boolTwo = array[2];
+  var getTrue = boolOne || boolTwo;
+  var getFalse = boolOne && boolTwo;
+  //EX-3
+  var numOne=numTwo=numThree = 0;
+  //EX-4
+  var numTMul = 0
+  var tMul = [];
+  //EX-5
+  var tabCol;
+  var txtCol;
+  var txtTab;
+  //EX-6
+  var revArray = [];
+
+  //--------------EJERCICIO 1---------------------
+  //Ejemplo de un array con rellenado unitario
+  //var x = [];
+  //x[1] = "Lunes";
+  //Funcion que se accionara al apretar su correspondiente boton
+  function exOne() {
+    alert("Las unidades de esta asignatura son:\n"+"\n"+unidadesTema[0]+"\n"+unidadesTema[1]+"\n"+unidadesTema[2]+"\n"+unidadesTema[3]+"\n"+unidadesTema[4]);
+  }
+  //--------------FIN EJERCICIO 1-----------------
+  //--------------EJERCICIO 2---------------------
+  //Ir imprimiendo los resultados que dan las variables del EJ-2
+  function exTwo() {
+    alert("Es hola mayor a adios? =" +textoMayor);
+    alert("Es posible True || False? ="+getTrue);
+    alert("Es posible True && False? ="+getFalse);
+  }
+  //--------------FIN EJERCICIO 2-----------------
+  //--------------EJERCICIO 3---------------------
+  function exThree(){
+  numOne = parseInt(prompt("Introduzca el primer número:", 0));
+  numTwo = parseInt(prompt("Introduzca el segundo número:", 0));
+  numThree = parseInt(prompt("Introduzca el tercer número:", 0));
+  if(numOne>numTwo)
+        {
+            if (numOne>numThree)
+            {
+                alert("El Mayor es : "+numOne);
+            }
+            else
+            {
+                if (numTwo>numThree)
+                {
+                    alert("El Mayor es : "+numTwo);
+                }
+                else
+                {
+                    alert("El Mayor es : "+numThree);
+                }
+            }
+        }
+        else
+        {
+            if (numTwo>numThree)
+            {
+                alert("El Mayor es : "+numTwo);
+            }
+            else
+            {
+                alert("El Mayor es : "+numThree);
+            }
+        }
+  }
+  //--------------FIN EJERCICIO 3-----------------
+  //--------------EJERCICIO 4---------------------
+  function exFour(){
+    numTabMul = parseInt(prompt("Introduzca el número a multiplicar:", 0));
+    for(var i = 0; i < 11; i++){
+      tMul[i] = numTabMul * i;
+    }
+    alert(tMul[0]+","+tMul[1]+","+tMul[2]+","+tMul[3]+","+tMul[4]+
+    ","+tMul[5]+","+tMul[6]+","+tMul[7]+","+tMul[8]+","+tMul[9]+","+tMul[10]);
+  }
+  //--------------FIN EJERCICIO 4-----------------
+  //--------------EJERCICIO 5---------------------
+  function exFive(){
+    txtTab = prompt("Texto para la tabla: ");
+    tabCol = prompt("Color de la tabla: ");
+    txtCol = prompt("Color del texto: ");
+    switch(tabCol){
+        case 'r':
+        tabCol="hotpink";
+        break;
+        case 'a':
+        tabCol="lightblue";
+        break;
+        case 'v':
+        tabCol="lightgreen";
+        break;
+        case 'y':
+        tabCol="lightyellow";
+        break;
+        default:
+        tabCol="lightgrey";
+    }
+    switch(txtCol){
+        case 'r':
+        txtCol="red";
+        break;
+        case 'a':
+        txtCol="blue";
+        break;
+        case 'v':
+        txtCol="green";
+        break;
+        case 'y':
+        txtCol="lightyellow";
+        break;
+        default:
+        txtCol="black";
+    }
+     document.getElementById("colorTable").innerHTML = "<table border='1'><tr bgcolor="+tabCol+"><td width='20%' height='50px' style='text-align: center;'><font color="+txtCol+">"+txtTab+"</font></td></tr></table>";
+  }
+  //--------------FIN EJERCICIO 5-----------------
+  //--------------EJERCICIO 6---------------------
+  function exSix(){
+    var htmlTab = "<table border=1><tr>";
+    //GoAhead
+    for(var ga = 1;ga < 11;ga++){
+      revArray[ga] = parseInt(prompt("Introduzca el número "+ga+" :", 0));
+    }
+    //Reverse
+    for(var rv = 11;rv > 1;rv--){
+      htmlTab += "<td>" + revArray[rv] + "</td>";
+    }
+     htmlTab += "</tr></table>";
+     document.getElementById("revEngine").innerHTML = htmlTab;
+
+  }
+  //--------------FIN EJERCICIO 6-----------------
+  //--------------EJERCICIO 7---------------------
+  function exSeven(){
+    ocultoRand=Math.floor(Math.random()* 11);
+    var intentos = 4;
+    for(var i = 0; i < 5; i++){
+      var numUser = parseInt(prompt("Adivine el numero, numero de intentos: "+intentos+" :", 0));
+      if(intentos > 0){
+      if(numUser > ocultoRand){
+        alert("El numero oculto es menor");
+      }else if (numUser < ocultoRand) {
+        alert("El numero oculto es mayor");
+      }else if (numUser == ocultoRand) {
+        alert("HA GANADO!")
+        break;
+      }
+      }else{
+          alert("Numero de intentos agotados, ha perdido.");
+          break;
+      }
+      intentos--;
+    }
+  }
+  //--------------FIN EJERCICIO 7-----------------
   </script>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">WebSiteName</a>
+        <a class="navbar-brand" href="#">WebSiteName</a>
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
@@ -21,6 +185,86 @@
       </ul>
     </div>
   </nav>
-  <a href="calculator.html">Calculadora</a>
+  <h2 class="text-center">Unidad 1</h2><br/>
+  <hr/>
+  <section class="container container-fluid">
+    <div class="col-md-4">
+      <b>Ejercicio 1: </b>Creacion de un array que contenga los dias de la semana o en este caso el numero de unidades de esta
+      asignatura.<br/><br/>
+      <button type="button" class="btn btn-info text-center" onclick="exOne();">Probar ejercicio</button>
+    </div>
+    <div class="col-md-4">
+      <b>Ejercicio 2: </b>Testear las diferencias entre condiciones con booleanos y ver sus resultados.<br/><br/>
+      <button type="button" class="btn btn-info" onclick="exTwo();">Probar ejercicio</button>
+    </div>
+    <div class="col-md-4">
+      <b>Ejercicio 2, parte 2(Calculadora): </b>Una calculadora de ejemplo que ejecuta las diferentes operaciones.<br/><br/>
+      <a href="calculator.html"><button type="button" class="btn btn-success">Ir a calculadora</button></a>
+    </div>
+  </section>
+  <br/><br/>
+  <section class="container container-fluid">
+    <div class="col-md-4">
+      <b>Ejercicio 3: </b>Introducir tres numeros y ver cual de ellos es el mayor.<br/><br/>
+      <button type="button" class="btn btn-info" onclick="exThree();">Probar ejercicio</button>
+    </div>
+    <div class="col-md-4">
+      <b>Ejercicio 4: </b>Introduzca el numero que desee y mostraremos su tabla de multiplicar.<br/><br/>
+      <button type="button" class="btn btn-info" onclick="exFour();">Probar ejercicio</button>
+    </div>
+  </section>
+  <br/><br/>
+  <section class="container container-fluid">
+    <div class="col-md-4">
+      <b>Ejercicio 5: </b>Introducir valor para cambiar color de la tabla/texto.<br/>
+      -Rosa-->r<br/>
+      -Azul claro-->a<br/>
+      -Amarillo claro-->v<br/>
+      -Verde claro-->y<br/>
+      <button type="button" class="btn btn-info" onclick="exFive();">Probar ejercicio</button>
+    </div>
+    <br/><br/><br/>
+    <!--Aqui apunta el INNERHTML-->
+    <div id="colorTable"></div>
+  </section>
+  <br/><br/>
+  <section class="container container-fluid">
+    <div class="col-md-4">
+      <b>Ejercicio 6: </b>Introducir diez numeros y se muestra de forma inversa a como se han introducido.<br/><br/>
+      <button type="button" class="btn btn-info" onclick="exSix();">Probar ejercicio</button>
+    </div>
+    <div id="revEngine"></div>
+  </section>
+  <br /><br/>
+  <section class="container container-fluid">
+    <div class="col-md-4">
+      <b>Ejercicio 7: </b>Adivine el numero oculto, el numero es entre el 1 y el 10.<br/><br/>
+      <button type="button" class="btn btn-info" onclick="exSeven();">Probar ejercicio</button>
+    </div>
+    <div id="revEngine"></div>
+  </section>
+  </br></br>
+  <section class="container container-fluid">
+    <div class="col-md-4">
+      <b>Ejercicio 8: </b>Creacion galeria con controles foto anterior/posterior.<br/><br/>
+      <a href="galeriaUno.html"><button type="button" class="btn btn-success">Ir a la galeria</button></a>
+    </div>
+    <div class="col-md-4">
+      <b>Ejercicio 9: </b>Creacion galeria con salto aleatorio de imagen.<br/><br/>
+      <a href="galeriaDos.html"><button type="button" class="btn btn-success">Ir a la galeria</button></a>
+    </div>
+    <div class="col-md-4">
+      <b>Ejercicio 10: </b>Galeria aleatoria con posible seleccion de imagen.<br/><br/>
+      <a href="galeriaTres.html"><button type="button" class="btn btn-success">Ir a la galeria</button></a>
+    </div>
+  </section>
+  <br /><br/>
+  <section class="container container-fluid">
+    <div class="col-md-4">
+      <b>Ejercicio 11: </b>Formulario con validacion de campos.<br/><br/>
+      <a href="formVali.html"><button type="button" class="btn btn-success">Ir al formulario</button></a>
+    </div>
+  </section>
+  </br>
 </body>
 </html>
