@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+    <title>Unidad 2</title>
+    <style>
+    .hidden{
+      visibility: hidden;
+    }
+    .visible{
+      visibility: visible;
+    }
+    </style>
+    <script type="text/javascript">
+    var hi = "<h1>Hello</h1>";
+    var randOne = Math.floor((Math.random() * 600) + 200);
+    var randTwo = Math.floor((Math.random() * 600) + 200);
+    var randOneMin = randOne - 50;
+    var randOneMax = randOne + 50;
+    var randTwoMin = randTwo - 50;
+    var randTwoMax = randTwo + 50;
+    var win = false;
+
+
+        function informacion(elEvento) {
+            var evento = elEvento || window.event;
+            var theDiv = document.getElementById("heyYou");
+            //theDiv.innerHTML = randOne + ", " + randTwo;
+            switch (evento.type) {
+                case 'mousemove':
+                   coordenadaXabsoluta = evento.pageX;
+                   coordenadaYabsoluta = evento.pageY;
+                   if(coordenadaXabsoluta > randOneMin && coordenadaXabsoluta < randOneMax && coordenadaYabsoluta > randTwoMin && coordenadaYabsoluta < randTwoMax){
+                        var bee = document.getElementById("heyYou");
+                        bee.style.position = "absolute";
+                        bee.style.left = randOne+'px';
+                        bee.style.top = randTwo+'px';
+                        bee.innerHTML = "<img src='imgs/bee.png' width='64px' height='64px'/>";
+                        if(win == false){
+                          alert("GANASTE!");
+                          win = true;
+                        }
+                    }
+                    //coordenadaXrelativa = evento.clientX;
+                    //coordenadaYrelativa = evento.clientY;
+                    //muestraInformacion(['Ratón', 'Posicion navegador [' + coordenadaXrelativa + ', ' + coordenadaYrelativa + ']', 'Posicion pagina [' + coordenadaXabsoluta + ', ' + coordenadaYabsoluta + ']']);
+                    break;
+                case 'keypress':
+                    var caracter = evento.charCode || evento.keyCode;
+                    var letra = String.fromCharCode(caracter);
+                    if(letra == 'm'){
+                      var bee = document.getElementById("heyYou");
+                      bee.style.position = "absolute";
+                      bee.style.left = randOne+'px';
+                      bee.style.top = randTwo+'px';
+                      bee.innerHTML = "<img src='imgs/bee.png' width='64px' height='64px'/>";
+                      if(win == false){
+                        alert("GANASTE!");
+                        win = true;
+                      }
+                    }
+                    break;
+            }
+        }
+        /*function muestraInformacion(mensaje) {
+            document.getElementById("info").innerHTML = '<h1>' + mensaje[0] + '</h1>';
+            for (var i = 1; i < mensaje.length; i++) {
+                document.getElementById("info").innerHTML += '<p>' + mensaje[i] + '</p>';
+            }
+        }*/
+
+        document.onmousemove = informacion;
+        document.onkeypress = informacion;
+
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="/ArqSoft">Unidad 1</a></li>
+          <li><a href="/ArqSoft/unidad2.html">Unidad 2</a></li>
+          <li><a href="#">Unidad 3</a></li>
+          <li><a href="#">Unidad 4</a></li>
+          <li><a href="#">Unidad 5</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h2 class="text-center">Ejercicio 5</h2>
+    <hr/>
+        <section class="container container-fluid">
+          <br />
+          Hay una abeja suelta de forma aleatoria por la pantalla. Para cazar a la abeja existen dos opciones:<br />
+          1-Encontrarla moviendo el raton sobre la pantalla.<br />
+          2-Acertar la letra correcta que acabara con la abeja<br />
+          <div id="heyYou">
+          </div>
+        </section>
+  </body>
+</html>

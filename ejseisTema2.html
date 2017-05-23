@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+    <title>Unidad 2</title>
+    <script type="text/javascript">
+    function data(theEvent){
+      var someEvent = theEvent || window.event;
+      var x = someEvent.clientX;
+      var y = someEvent.clientY;
+
+      var screenSize = navSize();
+      var sizeX = screenSize[0];
+      var sizeY = screenSize[1];
+      document.getElementById("screenInfo").innerHTML = "Tamaño de la ventana: "+sizeX+" x "+sizeY +" (ancho x alto)";
+      if(x > (sizeX/2) && y > (sizeY/2)){
+         document.getElementById("data").innerHTML = "Posicion X/Y pulsada = "+x+", "+y+"<br /><h2>Posicion</h2><br /><h3>Lado derecho inferior</h3>";
+      }
+      if(x > (sizeX/2) && y < (sizeY/2)){
+         document.getElementById("data").innerHTML = "Posicion X/Y pulsada = "+x+", "+y+"<br /><h2>Posicion</h2><br /><h3>Lado derecho superior</h3>";
+      }
+      if(x < (sizeX/2) && y < (sizeY/2)){
+         document.getElementById("data").innerHTML = "Posicion X/Y pulsada = "+x+", "+y+"<br /><h2>Posicion</h2><br /><h3>Lado izquierdo superior</h3>";
+      }
+      if(x < (sizeX/2) && y > (sizeY/2)){
+         document.getElementById("data").innerHTML = "Posicion X/Y pulsada = "+x+", "+y+"<br /><h2>Posicion</h2><br /><h3>Lado izquierdo inferior</h3>";
+      }
+    }
+    function navSize(){
+      var screenProps = [];
+      if(typeof(window.innerWidth) == 'number'){
+        screenProps = [window.innerWidth, window.innerHeight]
+      }
+      return screenProps;
+    }
+    document.onclick = data;
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="/ArqSoft">Unidad 1</a></li>
+          <li><a href="/ArqSoft/unidad2.html">Unidad 2</a></li>
+          <li><a href="#">Unidad 3</a></li>
+          <li><a href="#">Unidad 4</a></li>
+          <li><a href="#">Unidad 5</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h2 class="text-center">Ejercicio 6</h2>
+    <hr/>
+        <section class="container container-fluid">
+          <div id="screenInfo">
+          </div>
+          <div id="data">
+          </div>
+        </section>
+  </body>
+</html>

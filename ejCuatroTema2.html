@@ -6,6 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
     <title>Unidad 2</title>
+    <script language="javascript" type="text/javascript">
+        function changeSectionOne(){
+          var getClass = document.getElementById("textOne").className;
+          var sectionButton = document.getElementById("sectionOne");
+          if(getClass == "visible"){
+            document.getElementById("textOne").className = "hidden";
+            if (document.getElementById("sectionOne").value= "Ocultar") {
+              document.getElementById("sectionOne").value= "Mostrar";
+            }
+          }else if (getClass == "hidden") {
+            document.getElementById("textOne").className = "visible";
+            document.getElementById("sectionOne").value= "Ocultar";
+            if (document.getElementById("sectionOne").value= "Mostrar") {
+              document.getElementById("sectionOne").value= "Ocultar";
+            }
+          }
+        }
+        function changeSectionTwo(){
+          var getClass = document.getElementById("textTwo").className;
+          var sectionButton = document.getElementById("sectionTwo");
+          if(getClass == "visible"){
+            document.getElementById("textTwo").className = "hidden";
+            if (document.getElementById("sectionTwo").value= "Ocultar") {
+              document.getElementById("sectionTwo").value= "Mostrar";
+            }
+          }else if (getClass == "hidden") {
+            document.getElementById("textTwo").className = "visible";
+            document.getElementById("sectionTwo").value= "Ocultar";
+            if (document.getElementById("sectionTwo").value= "Mostrar") {
+              document.getElementById("sectionTwo").value= "Ocultar";
+            }
+          }
+        }
+        function changeSectionThree(){
+          var getClass = document.getElementById("textThree").className;
+          var sectionButton = document.getElementById("sectionThree");
+          if(getClass == "visible"){
+            document.getElementById("textThree").className = "hidden";
+            if (document.getElementById("sectionThree").value= "Ocultar") {
+              document.getElementById("sectionThree").value= "Mostrar";
+            }
+          }else if (getClass == "hidden") {
+            document.getElementById("textThree").className = "visible";
+            document.getElementById("sectionThree").value= "Ocultar";
+            if (document.getElementById("sectionThree").value= "Mostrar") {
+              document.getElementById("sectionThree").value= "Ocultar";
+            }
+          }
+        }
+    </script>
+    <style>
+        .hidden{
+          visibility: hidden;
+        }
+        .visible{
+          visibility: visible;
+        }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-inverse">
@@ -26,6 +84,26 @@
     <h2 class="text-center">Ejercicio 4</h2>
     <hr/>
         <section class="container container-fluid">
+          <input onclick="changeSectionOne()" type="button" value="Ocultar" id="sectionOne"></input>
+          <p id="textOne" class="visible">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <br />
+          <input onclick="changeSectionTwo()" type="button" value="Ocultar" id="sectionTwo"></input>
+          <p id="textTwo" class="visible">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <br />
+          <input onclick="changeSectionThree()" type="button" value="Ocultar" id="sectionThree"></input>
+          <p id="textThree" class="visible">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </section>
   </body>
 </html>
