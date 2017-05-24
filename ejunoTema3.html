@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+  <title>Unidad 3</title>
+  <script type="text/javascript">
+    function limita(elEvento, maxChars) {
+      var aliasElement = document.getElementById("alias");
+      var passElement = document.getElementById("pass");
+      // Obtener la tecla pulsada
+      var evento = elEvento || window.event;
+      //var charEvent = evento.charCode;
+      //document.getElementById("fooPass").innerHTML += evento.charCode;
+      var codigoCaracter = evento.charCode || evento.keyCode;
+      // Permitir el uso de las flechas para desplazarse
+      if (codigoCaracter == 37 || codigoCaracter == 39) {
+        return true;
+      }
+      //No permitir espacios
+      if (codigoCaracter == 32){
+        return false;
+      }
+      // Permitir backspace y supr
+      if (codigoCaracter == 8 || codigoCaracter == 46) {
+        return true;
+      }
+      if (aliasElement.value.length >= maxChars) {
+        return false;
+      }else {
+        return true;
+      }
+      if (passElement.value.length >= maxChars) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    function actualizaInfo(maxChars) {
+      var thePass = document.getElementById("pass");
+      var infoPass = document.getElementById("infoPass");
+      var theAlias = document.getElementById("alias");
+      var infoAlias = document.getElementById("infoAlias");
+      if (theAlias.value.length >= maxChars) {
+        infoAlias.innerHTML = "Máximo " + maxChars + " caracteres";
+      } else {
+        infoAlias.innerHTML = "Puede escribir hasta " + (maxChars -
+          theAlias.value.length) + " caracteres adicionales";
+      }
+      if (thePass.value.length >= maxChars) {
+        infoPass.innerHTML = "Máximo " + maxChars + " caracteres";
+      } else {
+        infoPass.innerHTML = "Puede escribir hasta " + (maxChars -
+          thePass.value.length) + " caracteres adicionales";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Arq. Software</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/ArqSoft">Unidad 1</a></li>
+        <li><a href="/ArqSoft/unidad2.html">Unidad 2</a></li>
+        <li><a href="/ArqSoft/unidad3.html">Unidad 3</a></li>
+        <li><a href="/ArqSoft/unidad4.html">Unidad 4</a></li>
+        <li><a href="/ArqSoft/unidad5.html">Unidad 5</a></li>
+      </ul>
+    </div>
+  </nav>
+  <h2 class="text-center">Ejercicio 1</h2>
+  <hr/>
+  <section class="container container-fluid">
+    Condiciones de los campos:<br />
+    -El alias permite un maximo de 20 caracteres<br />
+    -La password puede tener un maximo de 32 caracteres<br />
+    -No se permiten espacios ni en el alias ni en la password<br /><br />
+    Alias(Máximo 20 caracteres):<br />
+    <div id="infoAlias"></div>
+    <input id="alias" type="text" type="text" onkeypress="return limita(event, 20);" onkeyup="actualizaInfo(20)" /><br />
+    Password(Maximo 32 caracteres)<br />
+    <div id="infoPass">
+    </div>
+    <input id="pass" type="password" type="text" onkeypress="return limita(event, 32);" onkeyup="actualizaInfo(32)" />
+    <br /><br />
+    <a href="/ArqSoft/unidad3.html"><button type="button" class="btn btn-info">Volver atras</button></a>
+  </section>
+</body>
+
+</html>

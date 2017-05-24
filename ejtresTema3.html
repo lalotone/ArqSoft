@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+  <title>Unidad 3</title>
+  <script type="text/javascript">
+    function checkDate() {
+      //alert("It runs");
+      var theDate = document.getElementById("date").value;
+      var theHour = document.getElementById("hour").value;
+      //El dia
+      var day = new String(theDate.substring(0, theDate.indexOf("/")));
+      //El mes
+      var month = new String(theDate.substring(theDate.indexOf("/") + 1, theDate.lastIndexOf("/")));
+      //El anyo
+      var year = new String(theDate.substring(theDate.lastIndexOf("/") + 1, theDate.length));
+      //La hora
+      var hour = new String(theHour.substring(0, theHour.indexOf(":")));
+      //Los minutos
+      var minutes = new String(theHour.substring(theHour.indexOf(":") + 1));
+      //Parseadores
+      var h = parseInt(hour, 10);
+      var m = parseInt(minutes, 10);
+      var d = parseInt(day, 10);
+      var mth = parseInt(month, 10);
+      var y = parseFloat(year, 10);
+      //Toca empezar a las validaciones
+      //hora
+      if (isNaN(h)) {
+        alert("Introduzca una hora");
+        return false;
+      } else {
+        if (isNaN(hour) || h < 0 || h > 24) {
+          alert("Hora invalida");
+          return false;
+        }
+        //minutos
+        if (isNaN(minutes) || m < 0 || m > 59) {
+          alert("Minutos invalidos");
+          return false;
+        }
+      }
+      if(isNaN(d) || d.length < 1 || d > 31){
+        alert("Dia invalido");
+        return false;
+      }
+      if(isNaN(mth) || mth.length < 1 || mth > 12){
+        alert("Mes invalido");
+        return false;
+      }
+      if(isNaN(y) || y.length < 4 || y < 1900){
+        alert("Ano invalido");
+        return false;
+      }
+      if(mth == 2 || mth == 4 || mth == 6 || mth == 9 || mth == 11){
+        if(mth == 2 && d > 24 || d > 30){
+          alert("Dia invalido");
+          return false;
+        }
+      }
+      alert("Todo correcto");
+      //document.getElementById("proof").innerHTML = h;
+    }
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Arq. Software</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/ArqSoft">Unidad 1</a></li>
+        <li><a href="/ArqSoft/unidad2.html">Unidad 2</a></li>
+        <li><a href="/ArqSoft/unidad3.html">Unidad 3</a></li>
+        <li><a href="/ArqSoft/unidad4.html">Unidad 4</a></li>
+        <li><a href="/ArqSoft/unidad5.html">Unidad 5</a></li>
+      </ul>
+    </div>
+  </nav>
+  <h2 class="text-center">Ejercicio 3</h2>
+  <hr/>
+  <section class="container container-fluid">
+    <h3>Validador de fechas</h3>
+    <br /> La fecha debe estar en formato dd/mm/yyyyy<br /><br />
+    <input type="text" id="date" />
+    <br /><br /> La hora debe ser hh:mm <br /><br />
+    <input type="text" id="hour" />
+    <br /><br />
+    <button type="button" onclick="checkDate();" class="btn btn-success">Comprobar fecha</button>
+    <!--<div id="proof">
+
+    </div>-->
+  </section>
+  <br />
+</body>
+
+</html>

@@ -28,7 +28,6 @@
         function informacion(elEvento) {
             var evento = elEvento || window.event;
             var theDiv = document.getElementById("heyYou");
-            //theDiv.innerHTML = randOne + ", " + randTwo;
             switch (evento.type) {
                 case 'mousemove':
                    coordenadaXabsoluta = evento.pageX;
@@ -44,9 +43,6 @@
                           win = true;
                         }
                     }
-                    //coordenadaXrelativa = evento.clientX;
-                    //coordenadaYrelativa = evento.clientY;
-                    //muestraInformacion(['Ratón', 'Posicion navegador [' + coordenadaXrelativa + ', ' + coordenadaYrelativa + ']', 'Posicion pagina [' + coordenadaXabsoluta + ', ' + coordenadaYabsoluta + ']']);
                     break;
                 case 'keypress':
                     var caracter = evento.charCode || evento.keyCode;
@@ -65,12 +61,6 @@
                     break;
             }
         }
-        /*function muestraInformacion(mensaje) {
-            document.getElementById("info").innerHTML = '<h1>' + mensaje[0] + '</h1>';
-            for (var i = 1; i < mensaje.length; i++) {
-                document.getElementById("info").innerHTML += '<p>' + mensaje[i] + '</p>';
-            }
-        }*/
 
         document.onmousemove = informacion;
         document.onkeypress = informacion;
@@ -81,15 +71,14 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">WebSiteName</a>
+          <a class="navbar-brand">Arq. Software</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
           <li><a href="/ArqSoft">Unidad 1</a></li>
           <li><a href="/ArqSoft/unidad2.html">Unidad 2</a></li>
-          <li><a href="#">Unidad 3</a></li>
-          <li><a href="#">Unidad 4</a></li>
-          <li><a href="#">Unidad 5</a></li>
+          <li><a href="/ArqSoft/unidad3.html">Unidad 3</a></li>
+          <li><a href="/ArqSoft/unidad4.html">Unidad 4</a></li>
+          <li><a href="/ArqSoft/unidad5.html">Unidad 5</a></li>
         </ul>
       </div>
     </nav>

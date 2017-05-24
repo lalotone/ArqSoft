@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+    <title>Unidad 3</title>
+    <script type="text/javascript">
+      function ckeckInputs(){
+        var nameData = document.getElementById("name").value;
+        var ageData = document.getElementById("age").value;
+        var selectorSel = document.getElementById("selectorData").value;
+        var ageInt = parseInt(ageData);
+
+        if(nameData == ""){
+          alert("Ha dejado el campo nombre vacio.");
+          document.getElementById("name").focus();
+          return 0;
+        }
+        if(isNaN(ageInt)){
+            alert("Por favor, introduzca una edad correcta.");
+            document.getElementById("age").focus();
+            return 0;
+        }else{
+            if(ageInt < 18){
+              alert("No se permiten menores de 18.");
+              document.getElementById("age").focus();
+              return 0;
+            }
+        }
+        if(selectorSel == "0"){
+          alert("Por favor, seleccione un departamento.");
+          document.getElementById("selectorData").focus();
+          return 0;
+        }
+        alert("Introdujo correctamente los campos, se ha enviado el formulario");
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">Arq. Software</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/ArqSoft">Unidad 1</a></li>
+          <li><a href="/ArqSoft/unidad2.html">Unidad 2</a></li>
+          <li><a href="/ArqSoft/unidad3.html">Unidad 3</a></li>
+          <li><a href="/ArqSoft/unidad4.html">Unidad 4</a></li>
+          <li><a href="/ArqSoft/unidad5.html">Unidad 5</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h2 class="text-center">Ejercicio 2</h2>
+    <hr/>
+        <section class="container container-fluid">
+          <form name="formValidation">
+            Nombre:<br />
+            <input id="name" type="text" /><br />
+            Edad:<br />
+            <input id="age" type="text" /><br />
+            Departamento:<br />
+            <select id="selectorData">
+              <option value="0"></option>
+              <option value="1">Sistemas</option>
+              <option value="2">Programacion</option>
+            </select>
+            <br /><br />
+            <button type="button" onclick="ckeckInputs();" class="btn btn-success">Comprobar campos</button>
+          </form>
+          <br />
+          <br />
+          <a href="/ArqSoft/unidad3.html"><button type="button" class="btn btn-info">Volver atras</button></a>
+        </section>
+  </body>
+</html>
