@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+    <title>Unidad 4</title>
+    <script type="text/javascript">
+    function doStuff(){
+      var data;
+      var preloadTime = 0;
+      var loadTime = 0;
+      var theIp = document.getElementById("myIp");
+      var theStatus = document.getElementById("connStatus");
+      var theSrv = document.getElementById("srvStatus");
+      if(window.XMLHttpRequest){
+        //Para los navegadores modernos
+        data = new XMLHttpRequest();
+      }else {
+        //Para los Explorer viejos
+        data = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      preloadTime = new Date();
+      data.onreadystatechange=function(){
+        if(data.readyState == 4){
+          theStatus.value = "Cargado!";
+          var finalLoadTime = new Date();
+          if(data.status==200){
+             //alert("Foo!");
+             //alert("Su ip es la: "+data.responseText);
+             theSrv.value = "Conexion extablecida";
+             theIp.value = data.responseText;
+             loadTime = finalLoadTime - preloadTime;
+             alert("Tiempo de carga = " + loadTime * 1 +" milisegundos");
+          }else {
+             theSrv.value = "Fallo en la conexion";
+             alert("No se pudo conectar al servidor en este momento.");
+          }
+        }else{
+          //alert("Cargando datos...");
+          theStatus.value = "Cargando...";
+        }
+      }
+      data.open("GET", "http://icanhazip.com", false);
+      data.send(null);
+    }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">Arq. Software</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/ArqSoft">Unidad 1</a></li>
+          <li><a href="/ArqSoft/unidad2.html">Unidad 2</a></li>
+          <li><a href="/ArqSoft/unidad3.html">Unidad 3</a></li>
+          <li><a href="/ArqSoft/unidad4.html">Unidad 4</a></li>
+          <li><a href="/ArqSoft/unidad5.html">Unidad 5</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h2 class="text-center">Ejercicio 6</h2>
+    <hr/>
+        <section class="container container-fluid">
+          <div id="curlData">
+
+          </div>
+          <h2>Localizador de IP</h2>
+          <br />
+          Estado del servidor:
+          <br />
+          <input type="text" id="srvStatus" disabled="true" /><br />
+          Estado de la conexion:
+          <br />
+          <input type="text" id="connStatus" disabled="true" /><br />
+          Mi IP:
+          <br />
+          <input type="text" id="myIp" disabled="true"/>
+          <br />
+          <br />
+          <a href="#" onclick="doStuff();"><button type="button" class="btn btn-success">Cual es mi IP?</button></a>
+          <br /><br />
+          <a href="/ArqSoft/unidad4.html"><button type="button" class="btn btn-info">Ir atras</button></a>
+        </section>
+  </body>
+</html>
