@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+    <title>Unidad 4</title>
+    <script type="text/javascript">
+    var randomWeather = Math.floor((Math.random() * 2) + 0);
+    var weatherArray = ["Cloudy", "Sunny", "Rainy"];
+    var weath = "";
+      Object.prototype.implements = function(methodName){
+        return this[methodName] && this [methodName] instanceof Function;
+      }
+      var calculadora = {
+        x: 5,
+        y: 5,
+        sum: function () {
+          return this.x + this.y;
+        },
+        rest: function() {
+          return this.x - this.y;
+        },
+        multi: function() {
+          return this.x * this.y;
+        },
+        div: function() {
+          return this.x / this.y;
+        }
+      };
+      var weather = {
+        header: "Weather status ",
+        forecast: function (){
+          weath = "The weather is "+ weatherArray[randomWeather];
+          return weath;
+          //alert(weath);
+        }
+      };
+      alert("El objeto weather contiene la funcion 'forecast'? "+weather.implements("forecast"));
+      alert(weather.forecast());
+      alert("El objeto calculadora contiene la funcion 'sum'? "+calculadora.implements("sum"));
+      alert(calculadora.sum());
+      alert("El objeto calculadora contiene la funcion 'rest'? "+calculadora.implements("rest"));
+      alert(calculadora.rest());
+      alert("El objeto weather implementa la funcion 'rest'? ");
+      alert(weather.implements("rest"));
+      alert("El objeto calculadora implementa la funcion 'forecast'? ");
+      alert(calculadora.implements("forecast"));
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">Arq. Software</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/ArqSoft">Unidad 1</a></li>
+          <li><a href="/ArqSoft/unidad2.html">Unidad 2</a></li>
+          <li><a href="/ArqSoft/unidad3.html">Unidad 3</a></li>
+          <li><a href="/ArqSoft/unidad4.html">Unidad 4</a></li>
+          <li><a href="/ArqSoft/unidad5.html">Unidad 5</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h2 class="text-center">Ejercicio 5</h2>
+    <hr/>
+        <section class="container container-fluid">
+          <br />
+          Este ejercicio consiste en ver que objetos implementan que metodos:<br /><br />
+          -En caso de que este implementado, devolvera true y acto seguido su valor.<br />
+          -En caso de que no este implementado, devolvera undefined y no devolvera su valor, al no tener dicho metodo.<br />
+          <br />
+          <a href="/ArqSoft/unidad4.html"><button type="button" class="btn btn-info">Ir atras</button></a>
+        </section>
+  </body>
+</html>
