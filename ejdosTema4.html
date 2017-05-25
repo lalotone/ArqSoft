@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
+  <title>Unidad 4</title>
+  <script type="text/javascript">
+    function addToArrayOne() {
+      var arrayOneData = document.getElementById("addArrayOne").value;
+      if (isNaN(arrayOneData)) {
+        alert("Por favor introduzca un numero correcto.");
+        return false;
+      } else {
+        arrayOne = [1, 3];
+        Array.prototype = arrayOne;
+        arrayOne.push(arrayOneData);
+        for (var i = 0; i < arrayOne.length; i++) {
+          alert(arrayOne[i]);
+        }
+      }
+    }
+
+    function addToArrayTwo() {
+      var arrayTwoData = document.getElementById("addArrayTwo").value;
+      arrayTwo = [1, 3];
+      if (isNaN(arrayTwoData)) {
+        alert("Por favor introduzca un numero correcto.");
+        return false;
+      } else {
+        Array.prototype = arrayTwo;
+        for(var j = 0; j < arrayTwo.length; j++){
+          if(arrayTwo[j] == arrayTwoData){
+            alert("Esta intentando introducir un numero repetido.");
+            return false;
+          }
+        }
+        arrayTwo.push(arrayTwoData);
+        alert("Numero agregado correctamente");
+      }
+      for(var z = 0; z < arrayTwo.length; z++){
+        alert(arrayTwo[z]);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Arq. Software</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/ArqSoft">Unidad 1</a></li>
+        <li><a href="/ArqSoft/unidad2.html">Unidad 2</a></li>
+        <li><a href="/ArqSoft/unidad3.html">Unidad 3</a></li>
+        <li><a href="/ArqSoft/unidad4.html">Unidad 4</a></li>
+        <li><a href="/ArqSoft/unidad5.html">Unidad 5</a></li>
+      </ul>
+    </div>
+  </nav>
+  <h2 class="text-center">Ejercicio 2</h2>
+  <hr/>
+  <section class="container container-fluid">
+    <br />El array previamente creado contiene los valores 1 y 3 dentro, de forma que mediante las siguientes cajas de texto agregaremos
+    <br />elementos al array dinamicamente, en el primer caso sin evitar la repeticion y en el segundo caso, evitandola.<br />
+    <br /> Array sin evitar la repeticion.
+    <br />
+    <input id="addArrayOne" type="text" /><br /><br />
+    <button type="button" onclick="addToArrayOne();" class="btn btn-success">Agregar al array</button><br />
+    <br /> Array evitando la repeticion.
+    <br />
+    <input id="addArrayTwo" type="text" /><br /><br />
+    <button type="button" onclick="addToArrayTwo();" class="btn btn-success">Agregar al array</button><br />
+    <br />
+    <a href="/ArqSoft/unidad4.html"><button type="button" class="btn btn-info">Ir atras</button></a>
+  </section>
+</body>
+</html>

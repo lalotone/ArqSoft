@@ -7,6 +7,7 @@
     <LINK REL=StyleSheet HREF="styles/css/bootstrap.min.css" TYPE="text/css" />
     <title>Unidad 4</title>
     <script type="text/javascript">
+    function allStuff(){
       var bill = {
         company: {
         name: "Foocorp",
@@ -17,20 +18,41 @@
         country: "Foolang"
         },
         client: {
-
+          name: "TheFoo",
+          addr: "Foovenue 12",
+          country: "Foolang",
+          email: "foo@thefoo.net"
         },
-        sellData[
+        sellData: [
             { name: "DELL R720", quantity: 2, price: 4000},
-            { name: "DELL R210", quantity: 5, price: 1500},
-            { name: "DELL R320", quantity: 1, price: 2000}
+            { name: "DELL R210", quantity: 5, price: 1500}
         ],
         billInfo: {
           taxes: 0.21,
+          totalBill: 0,
           total: 0,
           payOption: "Credit card"
         }
       };
-      document.getElementById("billData").innerHTML = billData.company;
+      bill.totalBill = function(){
+        for (var i = 0; i < this.sellData.length; i++){
+          this.billInfo.total += (this.sellData[i].quantity * this.sellData[i].price);
+          this.billInfo.totalBill = this.billInfo.total + (this.billInfo.total * this.billInfo.taxes);
+        }
+      }
+      bill.totalData = function (){
+        this.totalBill();
+        alert("Total de la factura(sin IVA) = "+ this.billInfo.total + " Euros");
+        alert("Total de la factura(con IVA) = "+ this.billInfo.totalBill + " Euros");
+        alert("La direccion a la cual se realizara el envio es: "+this.client.addr);
+        alert("Email al que se enviara la copia: "+this.client.email);
+      }
+      bill.putInfo = function (){
+        alert("Total de la factura del cliente: "+this.client.name);
+      }
+      bill.putInfo();
+      bill.totalData();
+      }
     </script>
   </head>
   <body>
@@ -51,9 +73,18 @@
     <h2 class="text-center">Ejercicio 1</h2>
     <hr/>
         <section class="container container-fluid">
-          <div id="billData">
-              
-          </div>
+          <br />
+          A continuacion se muestra los datos de facturacion de un cliente a modo ejemplo, incluyendo:<br />
+          -Algunos datos del cliente.<br />
+          -Los datos totales de facturacion.<br />
+          -Lugar de envio de la compra.<br />
+          <br />
+          Pulse sobre el siguiente enlace para ver dichos datos de facturacion:
+          <br />
+          <a href="#" onclick="allStuff();">Mostrar factura</a>
+          <br />
+          <br />
+          <a href="/ArqSoft/unidad4.html"><button type="button" class="btn btn-info">Ir atras</button></a>
         </section>
   </body>
 </html>
